@@ -31,3 +31,46 @@ z(); // functions when returned from the function it maintains its lexical scope
 -> Iterators
 -> etc.
 */
+
+// setTimeout() schedules a one time execution of a function or code snippet after a specified delay in milliseconds
+// we have to pass a callback function in the setTimeout
+
+function a(){
+    var i = "Kaise ho";
+
+    setTimeout(function() {
+        console.log(i); // Printed after 3 secs    
+    }, 2000);
+
+    console.log("Hello") // this printed immedeatly after we run the program because JS doesn't wait for execution
+}
+
+a();
+
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+setTimeout(greet, 3000, "Tejas");
+
+for(var i = 1; i<=5 ; i++){{ 
+    setTimeout(function(){
+        console.log(i); // this prints 6 5 times beacuse of i valuses keep on changing before the timer is executed
+    },i*1000);
+}}
+
+// to solve this we will use closures 
+for(var i = 1; i<=5 ; i++){{ 
+    function m(i){
+        setTimeout(function(){
+        console.log(i); //  here for each changing i we are createing new block 
+    },i*1000 + 6000);
+    }
+    m(i);
+}}
+
+for(let i = 1; i<=5 ; i++){{ 
+    setTimeout(function(){
+        console.log(i); // this works cause let uses block scope so each time a loop is run each time we get a new block for i 
+    },i*1000);
+}}
+
