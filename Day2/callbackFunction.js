@@ -16,6 +16,11 @@ x(function y(){
 
 // Blocking the main thread means when we have a function/operation which needs alot of time to execute it is called as blocker
 
+/*An event listener in JavaScript is a function that waits for a specific event (such as a click, keypress, or page load)
+to occur on a DOM element and then executes a designated callback function in response. 
+syntax: element.addEventListener(eventType, callbackFunction, useCapture)
+*/
+
 function attachEventListener(){
     let count = 0;
     document.getElementById("clickMe")
@@ -25,3 +30,4 @@ function attachEventListener(){
 }
 
 attachEventListener()
+
